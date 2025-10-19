@@ -319,14 +319,20 @@ const MemeTemplateManager = () => {
         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                 Meme Template Manager
               </h1>
-              <p className="text-gray-600">
-                Upload templates and define text/image zones - Connected to
-                MongoDB
+
+              <p className="text-gray-600 mb-0.5">
+                Upload templates and define text/image zones — connected to
+                MongoDB.
+              </p>
+              <p className="text-sm text-gray-500 italic">
+                Built for my Auto-Meme-Generation project to store customized
+                meme templates.
               </p>
             </div>
+
             <button
               onClick={fetchTemplates}
               className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
