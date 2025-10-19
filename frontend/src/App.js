@@ -257,7 +257,7 @@ const MemeTemplateManager = () => {
     setCategory(template.category || "general");
     setTags(template.tags?.join(", ") || "");
     setZones(template.zones || []);
-    setImagePreview(`${API_URL.replace("/api", "")}${template.imageUrl}`);
+    setImagePreview(template.imageUrl);
   };
 
   const deleteTemplate = async (id) => {
@@ -644,9 +644,7 @@ const MemeTemplateManager = () => {
                     >
                       <div className="flex gap-3">
                         <img
-                          src={`${API_URL.replace("/api", "")}${
-                            template.imageUrl
-                          }`}
+                          src={template.imageUrl}
                           alt={template.name}
                           className="w-20 h-20 object-cover rounded"
                         />
