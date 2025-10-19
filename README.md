@@ -10,18 +10,18 @@ A full-stack web application for managing meme templates with automated meme gen
 
 ## 📋 Table of Contents
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Project Structure](#project-structure)
-- [Deployment](#deployment)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
+- [Features](#-features)
+- [Tech Stack](#️-tech-stack)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Configuration](#️-configuration)
+- [Usage](#-usage)
+- [API Documentation](#-api-documentation)
+- [Project Structure](#-project-structure)
+- [Deployment](#-deployment)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
@@ -457,8 +457,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@Anjor99](https://github.com/Anjor99)
+- Email: anjorrane112003@gmail.com
 
 ---
 
@@ -475,8 +475,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For issues and questions:
 - Open an issue on GitHub
-- Email: support@yourproject.com
-- Documentation: [Link to docs]
+- Email: anjorrane112003@gmail.com
 
 ---
 
@@ -497,9 +496,9 @@ For issues and questions:
 
 ## 📊 Stats
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/meme-automation?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/meme-automation?style=social)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/meme-automation)
+![GitHub stars](https://img.shields.io/github/stars/Anjor99/Meme_template_store?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Anjor99/Meme_template_store?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Anjor99/Meme_template_store)
 
 ---
 
