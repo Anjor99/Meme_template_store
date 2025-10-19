@@ -479,8 +479,8 @@ For issues and questions:
 
 ## 📊 Stats
 
-![GitHub stars](https://img.shields.io/github/stars/Anjor99/Meme_template_store?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Anjor99/Meme_template_store?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Anjor99/Meme_template_store)
+![GitHub forks](https://img.shields.io/github/forks/Anjor99/Meme_template_store)
 ![GitHub issues](https://img.shields.io/github/issues/Anjor99/Meme_template_store)
 
 ---
