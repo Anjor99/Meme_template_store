@@ -28,6 +28,7 @@ A full-stack web application for managing meme templates with automated meme gen
 ## ✨ Features
 
 - 🖼️ **Template Management**: Upload and organize meme templates
+- ☁️ **Cloudinary Integration**: Store photos in cloud without data loss
 - 📐 **Zone Definition**: Draw text and image zones with visual editor
 - 🎨 **Text Customization**: Configure font size, color, and alignment
 - 🗄️ **MongoDB Storage**: Persistent cloud database storage
@@ -47,6 +48,7 @@ A full-stack web application for managing meme templates with automated meme gen
 - **Express.js** - Web framework
 - **MongoDB Atlas** - Cloud database
 - **Mongoose** - MongoDB ODM
+- **Cloudinary** - Cloud image storage and CDN
 - **Multer** - File upload handling
 - **CORS** - Cross-origin resource sharing
 
@@ -55,6 +57,11 @@ A full-stack web application for managing meme templates with automated meme gen
 - **Tailwind CSS** - Styling framework
 - **Lucide React** - Icon library
 - **HTML5 Canvas** - Zone drawing
+
+### Deployment
+- **Render** - Backend and frontend hosting
+- **MongoDB Atlas** - Cloud database
+- **Cloudinary** - Image CDN and storage
 
 ---
 
@@ -66,6 +73,7 @@ Before you begin, ensure you have the following installed:
 - **npm** (comes with Node.js)
 - **MongoDB Atlas Account** - [Sign up free](https://www.mongodb.com/cloud/atlas/register)
 - **Git** (optional) - [Download](https://git-scm.com/)
+- **Cloudinary Account** - [Sign up free](https://cloudinary.com/)
 
 ---
 
@@ -137,11 +145,26 @@ Example:
 mongodb+srv://memeapp:PASSWORD@cluster0.xxxxx.mongodb.net/meme-templates?retryWrites=true&w=majority
 ```
 
+### Cloudinary Setup
+
+1. **Create Account**: Go to [Cloudinary](https://cloudinary.com/) and sign up for free
+
+2. **Get API Credentials**:
+   - Go to Dashboard
+   - Copy your `Cloud Name`, `API Key`, and `API Secret`
+
+3. **Configure Upload Preset** (Optional):
+   - Go to Settings → Upload
+   - Create unsigned upload preset for direct uploads
+
 ### Environment Variables
 
 **Backend `.env`:**
 ```env
 MONGODB_URI=mongodb+srv://memeapp:PASSWORD@cluster0.xxxxx.mongodb.net/meme-templates
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 PORT=3000
 NODE_ENV=development
 ```
@@ -274,13 +297,12 @@ GET /templates/search/tags?tags=funny,viral
 ## 📁 Project Structure
 
 ```
-meme-automation/
+meme-template-store/
 ├── backend/
 │   ├── node_modules/
-│   ├── uploads/              # Uploaded images (auto-created)
-│   ├── .env                  # Environment variables
+│   ├── server.js            # Main server file (everything in one file)
+│   ├── .env                 # Environment variables
 │   ├── .gitignore
-│   ├── server.js             # Main server file
 │   ├── package.json
 │   └── package-lock.json
 │
@@ -299,91 +321,56 @@ meme-automation/
 │   ├── package.json
 │   └── package-lock.json
 │
-└── README.md                 # This file
+└── README.md                 # This file                
 ```
 
 ---
 
 ## 🌐 Deployment
 
-### Backend Deployment Options
+### Backend Deployment on Render
 
-#### Option 1: Render (Recommended - FREE)
-
-1. Create account at [Render](https://render.com)
+#### Create Web Service
+1. Go to [Render Dashboard](https://dashboard.render.com)
 2. Click "New +" → "Web Service"
-3. Connect your GitHub repo
-4. Settings:
-   - **Name**: meme-template-api
-   - **Environment**: Node
-   - **Build Command**: `cd backend && npm install`
-   - **Start Command**: `cd backend && npm start`
-   - **Environment Variables**: Add `MONGODB_URI`
-5. Click "Create Web Service"
+3. Connect your GitHub repository
 
-#### Option 2: Railway
+#### Configure Backend Service
+- **Name**: `meme-template-backend`
+- **Environment**: `Node`
+- **Region**: Choose closest to your users
+- **Branch**: `main` (or your preferred branch)
+- **Root Directory**: `backend`
+- **Build Command**: `npm install`
+- **Start Command**: `node server.js`
 
-1. Go to [Railway.app](https://railway.app)
-2. Click "Start a New Project"
-3. Deploy from GitHub repo
-4. Add environment variables
-5. Railway will auto-deploy
-
-#### Option 3: Heroku
-
-```bash
-# Install Heroku CLI
-# Create Heroku app
-heroku create meme-template-api
-
-# Set environment variables
-heroku config:set MONGODB_URI="your_connection_string"
-
-# Deploy
-git push heroku main
+#### Environment Variables
+```env
+MONGODB_URI=your_mongodb_atlas_connection_string
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+NODE_ENV=production
+PORT=10000
 ```
 
-### Frontend Deployment Options
+### Frontend Deployment on Render
 
-#### Option 1: Vercel (Recommended - FREE)
+#### Create Static Site
+1. Go to [Render Dashboard](https://dashboard.render.com)
+2. Click "New +" → "Static Site"
+3. Connect your GitHub repository
 
-1. Go to [Vercel](https://vercel.com)
-2. Import your GitHub repository
-3. Framework Preset: Create React App
-4. Root Directory: `frontend`
-5. Environment Variables:
-   - `REACT_APP_API_URL`: Your deployed backend URL
-6. Deploy
+#### Configure Frontend Service
+- **Name**: `meme-template-frontend`
+- **Branch**: `main`
+- **Root Directory**: `frontend`
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `frontend/build`
 
-#### Option 2: Netlify
-
-1. Go to [Netlify](https://netlify.com)
-2. "Add new site" → "Import existing project"
-3. Choose your repo
-4. Build settings:
-   - **Base directory**: `frontend`
-   - **Build command**: `npm run build`
-   - **Publish directory**: `frontend/build`
-5. Environment variables: Add `REACT_APP_API_URL`
-6. Deploy
-
-#### Option 3: GitHub Pages
-
-```bash
-cd frontend
-
-# Install gh-pages
-npm install --save-dev gh-pages
-
-# Add to package.json
-"homepage": "https://yourusername.github.io/meme-automation"
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
-}
-
-# Deploy
-npm run deploy
+#### Environment Variables
+```env
+REACT_APP_API_URL=https://meme-template-backend.onrender.com/api
 ```
 
 ### Update Frontend API URL
@@ -410,10 +397,6 @@ const API_URL = process.env.REACT_APP_API_URL || 'https://your-backend.render.co
 # Kill process on port 3000
 lsof -ti:3000 | xargs kill -9
 ```
-
-**File Upload Errors:**
-- Check `uploads/` folder exists
-- Verify folder permissions: `chmod 755 uploads/`
 
 ### Frontend Issues
 
