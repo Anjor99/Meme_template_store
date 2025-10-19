@@ -1,5 +1,14 @@
 # 🎨 Meme Template Manager
 
+## 📊 Stats
+
+![GitHub stars](https://img.shields.io/github/stars/Anjor99/Meme_template_store?style=for-the-badge&logo=github)
+![GitHub forks](https://img.shields.io/github/forks/Anjor99/Meme_template_store?style=for-the-badge&logo=github)
+![GitHub issues](https://img.shields.io/github/issues/Anjor99/Meme_template_store?style=for-the-badge&logo=github)
+---
+
+**Made with ❤️ for meme creators everywhere**
+
 A full-stack web application for managing meme templates with automated meme generation capabilities. Upload templates, define text/image zones, and use them for automated Instagram posting.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -477,11 +486,3 @@ For issues and questions:
 
 ---
 
-## 📊 Stats
-
-![GitHub stars](https://img.shields.io/github/stars/Anjor99/Meme_template_store?style=for-the-badge&logo=github)
-![GitHub forks](https://img.shields.io/github/forks/Anjor99/Meme_template_store?style=for-the-badge&logo=github)
-![GitHub issues](https://img.shields.io/github/issues/Anjor99/Meme_template_store?style=for-the-badge&logo=github)
----
-
-**Made with ❤️ for meme creators everywhere**
